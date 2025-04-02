@@ -32,6 +32,9 @@
       ],
       "@components/*": [
         "./src/app/components/*"
+      ],
+      "@lib/*": [
+        "./src/app/lib/*"
       ]
     }
   },

@@ -1,5 +1,6 @@
 import Header from "@components/home/Header";
-import Introduction from "./components/home/Introduction";
+import Introduction from "@components/home/Introduction";
+import TrendingItems from "@components/home/TrendingItems";
 
 export default function Home() {
 	return (
@@ -7,6 +8,8 @@ export default function Home() {
 			<Header />
 
 			<Introduction />
+
+			<TrendingItems />
 		</main>
 	);
 }
