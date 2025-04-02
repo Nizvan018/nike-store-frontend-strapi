@@ -16,8 +16,9 @@ export default function Navbar() {
 
     return (
         <nav className="z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 text-white">
-            <div className="w-[120px]">
-                <SiNike size={32} />
+            <div className="flex items-center gap-2 w-[120px]">
+                <span className="text-xl font-bold italic">NIKE</span>
+                <SiNike size={40} />
             </div>
             <ul className="flex items-center gap-8 text-sm">
                 {links.map(item => (

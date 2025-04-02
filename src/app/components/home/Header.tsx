@@ -1,10 +1,36 @@
+import Image from "next/image";
+import { SiNike } from "react-icons/si";
+
+import whiteSneakers from "@assets/images/home/white-sneakers.webp";
+import greenSneakers from "@assets/images/home/green-sneakers.webp";
+import colorfulWave from "@assets/images/home/colorful-wave.webp";
+
 export default function Header() {
     return (
-        <header className="flex justify-center items-center w-full h-[90vh] bg-blue-zodiac-950 bottom-diagonal">
-            <h1 className="text-white text-9xl font-bold italic">
-                <span className="block">AIR</span>
-                <span className="block -mt-8">JORDAN</span>
-            </h1>
+        <header className="flex justify-center items-center w-full h-[90vh] px-8 bg-gradient-to-br from-blue-zodiac-950 to-slate-950 bottom-diagonal overflow-hidden">
+            <div className="flex justify-center w-1/2">
+                <h1 className="text-white text-9xl font-bold italic">
+                    <span className="flex items-center gap-2">AIR <SiNike size={220} /></span>
+                    <span className="block -mt-20">JORDAN</span>
+                </h1>
+            </div>
+            <div className="relative flex justify-center items-center w-1/2 h-full">
+                <Image
+                    src={whiteSneakers}
+                    alt="White Sneakers Mockup"
+                    className="z-20 absolute h-[65%] w-auto -rotate-[12deg] translate-x-20 drop-shadow-2xl"
+                />
+                <Image
+                    src={greenSneakers}
+                    alt="Green Sneakers Mockup"
+                    className="z-10 absolute h-[40%] w-auto rotate-[12deg] -translate-x-40 -scale-x-100 drop-shadow-2xl"
+                />
+                <Image
+                    src={colorfulWave}
+                    alt="Colorful wave"
+                    className="h-[150%] translate-32 rotate-[16deg] w-auto"
+                />
+            </div>
         </header>
     )
 }
