@@ -4,6 +4,7 @@ import { SiNike } from "react-icons/si";
 import { LuUser } from "react-icons/lu";
 import { SlBag } from "react-icons/sl";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const links = [
     { label: "Home", pathname: "/" },
@@ -13,9 +14,27 @@ const links = [
 
 export default function Navbar() {
     const pathname = usePathname();
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <nav className="z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 text-white">
+        <nav className={`
+            z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 text-white duration-300
+            ${isScrolled && "bg-blue-zodiac-950"}
+        `}>
             <div className="flex items-center gap-2 w-[120px]">
                 <span className="text-xl font-bold italic">NIKE</span>
                 <SiNike size={40} />
