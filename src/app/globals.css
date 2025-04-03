@@ -12,8 +12,14 @@
     --color-blue-zodiac-800: #374a96;
     --color-blue-zodiac-900: #304078;
     --color-blue-zodiac-950: #1e2542;
+
+    --aspect-portrait: 3 / 4;
 }
 
 @utility bottom-diagonal {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+@utility top-diagonal {
+    clip-path: polygon(0 60%, 100% 50%, 100% 100%, 0 100%);
 }
