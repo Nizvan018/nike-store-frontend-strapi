@@ -35,7 +35,7 @@ export default function TrendingItems() {
             </div>
 
             {/* STORE */}
-            <div className="grid grid-cols-3 gap-12 w-full mt-16 pb-8">
+            <div className="grid grid-cols-3 gap-12 w-full mt-16 pb-8 px-6">
                 <ItemCard
                     name="Air Jordan Swamp"
                     imageSrc={greenSneakers}

@@ -10,7 +10,7 @@ const links = [
     { label: "Home", pathname: "/" },
     { label: "Store", pathname: "/store" },
     { label: "Contact", pathname: "/contact" }
-]
+];
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -18,7 +18,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 150) {
                 setIsScrolled(true);
             } else {
                 setIsScrolled(false);
@@ -36,7 +36,7 @@ export default function Navbar() {
     return (
         <nav className={`
             z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 text-white duration-300
-            ${isScrolled && "bg-blue-zodiac-950"}
+            ${isScrolled && "bg-slate-950/90 backdrop-blur-md"}
         `}>
             <div className="flex items-center gap-2 w-[120px]">
                 <span className="text-xl font-bold italic">NIKE</span>
