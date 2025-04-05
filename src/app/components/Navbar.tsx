@@ -3,17 +3,32 @@
 import { SiNike } from "react-icons/si";
 import { LuUser } from "react-icons/lu";
 import { SlBag } from "react-icons/sl";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import DesktopMenu from "./DesktopMenu";
+import MobileMenu from "./MobileMenu";
 
-const links = [
-    { label: "Home", pathname: "/" },
-    { label: "Store", pathname: "/store" },
-    { label: "Contact", pathname: "/contact" }
+const shopLinks: { title: string; href: string; description: string }[] = [
+    {
+        title: "New",
+        href: "/shop/new",
+        description:
+            "All our brand new products, just for the deportist inside you.",
+    },
+    {
+        title: "Best",
+        href: "/shop/best",
+        description:
+            "Designed for the best of the best, our most popular products.",
+    },
+    {
+        title: "Special",
+        href: "/shop/special",
+        description:
+            "For those who want to be unique, our most exclusive products.",
+    },
 ];
 
 export default function Navbar() {
-    const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -42,18 +57,12 @@ export default function Navbar() {
                 <span className="text-xl font-bold italic">NIKE</span>
                 <SiNike size={40} />
             </div>
-            <ul className="flex items-center gap-8 text-sm">
-                {links.map(item => (
-                    <li key={item.label}>
-                        <a
-                            href={item.pathname}
-                            className={`border-b pb-1 ${item.pathname === pathname ? "border-white" : "border-transparent"}`}
-                        >
-                            {item.label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
+            <div className="hidden md:block">
+                <DesktopMenu shopLinks={shopLinks} />
+            </div>
+            <div className="md:hidden">
+                <MobileMenu shopLinks={shopLinks} />
+            </div>
             <div className="flex items-center justify-end gap-4 w-[120px]">
                 <LuUser size={24} />
                 <div className="flex items-center text-blue-zodiac-950 py-1 px-2 rounded-sm bg-white">
