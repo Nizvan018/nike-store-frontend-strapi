@@ -53,21 +53,26 @@ export default function Navbar() {
             z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 text-white duration-300
             ${isScrolled && "bg-slate-950/90 backdrop-blur-md"}
         `}>
-            <div className="flex items-center gap-2 w-[120px]">
+            <div className="flex items-center gap-2 w-[160px]">
                 <span className="text-xl font-bold italic">NIKE</span>
                 <SiNike size={40} />
             </div>
+
+            {/* DESKTOP MENU */}
             <div className="hidden md:block">
                 <DesktopMenu shopLinks={shopLinks} />
             </div>
-            <div className="md:hidden">
-                <MobileMenu shopLinks={shopLinks} />
-            </div>
-            <div className="flex items-center justify-end gap-4 w-[120px]">
+
+            <div className="flex items-center justify-end gap-4 w-[160px]">
                 <LuUser size={24} />
                 <div className="flex items-center text-blue-zodiac-950 py-1 px-2 rounded-sm bg-white">
                     <SlBag className="mr-2" />
                     <span className="border-l border-y-blue-zodiac-950 pl-2">0</span>
+                </div>
+
+                {/* MOBILE MENU */}
+                <div className="flex items-center md:hidden">
+                    <MobileMenu shopLinks={shopLinks} />
                 </div>
             </div>
         </nav>
