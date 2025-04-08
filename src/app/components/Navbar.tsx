@@ -6,6 +6,7 @@ import { SlBag } from "react-icons/sl";
 import { useState, useEffect } from "react";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
+import ThemeToggle from "@components/ThemeToggle";
 
 const shopLinks: { title: string; href: string; description: string }[] = [
     {
@@ -50,10 +51,10 @@ export default function Navbar() {
 
     return (
         <nav className={`
-            z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 text-white duration-300
+            z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 border-b border-transparent dark:border-white/10 text-white duration-300
             ${isScrolled && "bg-slate-950/90 backdrop-blur-md"}
         `}>
-            <div className="flex items-center gap-2 w-[160px]">
+            <div className="flex items-center gap-2 w-[200px]">
                 <span className="text-xl font-bold italic">NIKE</span>
                 <SiNike size={40} />
             </div>
@@ -63,12 +64,15 @@ export default function Navbar() {
                 <DesktopMenu shopLinks={shopLinks} />
             </div>
 
-            <div className="flex items-center justify-end gap-4 w-[160px]">
+            <div className="flex items-center justify-end gap-4 w-[200px]">
                 <LuUser size={24} />
                 <div className="flex items-center text-blue-zodiac-950 py-1 px-2 rounded-sm bg-white">
                     <SlBag className="mr-2" />
                     <span className="border-l border-y-blue-zodiac-950 pl-2">0</span>
                 </div>
+
+                {/* THEME TOGGLE */}
+                <ThemeToggle />
 
                 {/* MOBILE MENU */}
                 <div className="flex items-center md:hidden">
