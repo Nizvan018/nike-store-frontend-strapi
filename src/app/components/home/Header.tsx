@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SiNike } from "react-icons/si";
-import { getHomeInfo } from "@lib/home/get-home-info";
+// import { getHomeInfo } from "@lib/home/get-home-info";
 
 import whiteSneakers from "@assets/images/home/white-sneakers.webp";
 import greenSneakers from "@assets/images/home/green-sneakers.webp";
@@ -10,7 +10,7 @@ export default async function Header() {
     // const { images } = await getHomeInfo();
 
     return (
-        <header className="flex justify-center items-center w-full h-[60vh] sm:h-[70vh] md:h-[90vh] px-8 bg-gradient-to-br from-blue-zodiac-950 to-slate-950 bottom-diagonal duration-300 overflow-hidden">
+        <header className="flex justify-center items-center w-full h-[60vh] sm:h-[70vh] md:h-[90vh] px-8 bg-gradient-to-br from-blue-zodiac-950 dark:from-slate-900 to-slate-950 dark:to-near-black bottom-diagonal duration-300 overflow-hidden">
             <div className="flex justify-center w-1/2">
                 <h1 className="text-white text-7xl sm:text-8xl md:text-9xl font-bold italic duration-300">
                     <span className="flex items-center gap-2">AIR <SiNike className="text-9xl sm:text-[160px] md:text-[220px]" /></span>

@@ -42,7 +42,7 @@ const DesktopMenu = ({ shopLinks }: Props) => {
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
                                     <Link
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-blue-zodiac-950/5 to-slate-950/10 p-6 no-underline outline-none focus:shadow-md"
+                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-br from-blue-zodiac-950/5 dark:from-slate-950/10 to-slate-950/10 dark:to-near-black/40 p-6 no-underline outline-none focus:shadow-md"
                                         href="/"
                                     >
                                         <div className="mb-2 mt-4 text-lg font-bold italic">

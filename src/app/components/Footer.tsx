@@ -10,7 +10,7 @@ const links = [
 
 export default function Footer() {
     return (
-        <footer className="flex justify-center w-full px-8 py-12 text-white text-sm bg-gradient-to-br from-blue-zodiac-950 to-slate-950">
+        <footer className="flex justify-center w-full px-8 py-12 text-white text-sm bg-gradient-to-br from-blue-zodiac-950 dark:from-slate-900 to-slate-950 dark:to-near-black">
             <div className="flex items-start justify-between gap-16 w-full max-w-[1200px]">
                 {/* INFO AND SOCIAL MEDIA */}
                 <div className="flex flex-col gap-2">

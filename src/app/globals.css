@@ -16,13 +16,15 @@
     --color-blue-zodiac-900: #304078;
     --color-blue-zodiac-950: #1e2542;
 
-    --aspect-portrait: 3 / 4;
+    --color-near-black: #000006;
+
+    --aspect-portrait: 2 / 3;
 }
 
 /* SHADCN */
 
 :root {
-    --radius: 0.625rem;
+    /* --radius: 0.625rem; */
     --background: oklch(1 0 0);
     --foreground: oklch(0.129 0.042 264.695);
     --card: oklch(1 0 0);
@@ -91,10 +93,10 @@
 }
 
 @theme inline {
-    --radius-sm: calc(var(--radius) - 4px);
+    /* --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) + 4px);
+    --radius-xl: calc(var(--radius) + 4px); */
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-card: var(--card);
