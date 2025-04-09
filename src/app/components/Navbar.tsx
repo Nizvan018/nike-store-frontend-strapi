@@ -51,8 +51,8 @@ export default function Navbar() {
 
     return (
         <nav className={`
-            z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 border-b border-transparent dark:border-white/10 text-white duration-300
-            ${isScrolled && "bg-slate-950/90 backdrop-blur-md"}
+            z-[1000] fixed flex justify-between items-center gap-12 w-full py-4 px-8 border-b border-transparent text-white duration-300
+            ${isScrolled && "dark:border-white/10 bg-slate-950/90 backdrop-blur-md"}
         `}>
             <div className="flex items-center gap-2 w-[200px]">
                 <span className="text-xl font-bold italic">NIKE</span>
