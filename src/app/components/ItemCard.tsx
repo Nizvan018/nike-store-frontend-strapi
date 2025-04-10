@@ -18,7 +18,7 @@ export default function ItemCard({ name, imageSrc, price, coinage, hover, bg, to
             {/* SHINE EFFECT */}
             <div className="z-10 absolute top-0 left-0 overflow-hidden w-full h-full rounded-[14px]">
                 <div className="relative w-full h-full">
-                    <div className="absolute w-full h-full -left-[150%] bg-gradient-to-r from-transparent transform-[skewX(-25deg)] via-white/80 to-transparent group-hover:translate-x-[300%] duration-500"></div>
+                    <div className="absolute w-full h-full -left-[150%] bg-gradient-to-r from-transparent transform-[skewX(-25deg)] via-white/80 dark:via-white/50 to-transparent group-hover:translate-x-[300%] duration-500"></div>
                 </div>
             </div>
 
