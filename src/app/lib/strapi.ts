@@ -1,9 +1,11 @@
-const { STRAPI_HOST, STRAPI_TOKEN } = process.env;
+const { STRAPI_URL, STRAPI_API_TOKEN } = process.env;
 
 export function query(url: string) {
-    return fetch(`${STRAPI_HOST}/api/${url}`, {
+    return fetch(`${STRAPI_URL}/api/${url}`, {
         headers: {
-            Authorization: `Bearer ${STRAPI_TOKEN}`
+            Authorization: `Bearer ${STRAPI_API_TOKEN}`
         }
-    }).then(res => res.json());
+    }).then(res => {
+        return res.json();
+    });
 }

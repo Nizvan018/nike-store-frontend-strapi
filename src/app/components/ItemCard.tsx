@@ -7,12 +7,15 @@ interface Props {
     imageSrc: string | StaticImport;
     price: number;
     coinage: string;
+    alt: string;
+    imageWidth: number;
+    imageHeight: number;
     hover: string;
     bg: string;
     to: string;
 }
 
-export default function ItemCard({ name, imageSrc, price, coinage, hover, bg, to }: Props) {
+export default function ItemCard({ name, imageSrc, price, coinage, alt, imageWidth, imageHeight, hover, bg, to }: Props) {
     return (
         <article className={`group relative w-full aspect-portrait rounded-[14px] ${hover} duration-[2000ms] cursor-pointer`}>
             {/* SHINE EFFECT */}
@@ -26,7 +29,13 @@ export default function ItemCard({ name, imageSrc, price, coinage, hover, bg, to
                 <div className="flex flex-col w-full h-full rounded-xl bg-background">
                     <div className="relative flex justify-center items-center w-full aspect-square">
                         <div className={`absolute w-full aspect-square rounded-2xl top-diagonal ${bg}`}></div>
-                        <Image src={imageSrc} alt="Green Sneakers" className="absolute w-[calc(100%-24px)] h-auto group-hover:scale-[120%] duration-400" />
+                        <Image
+                            src={`${process.env.STRAPI_URL}${imageSrc}`}
+                            alt={alt}
+                            width={imageWidth}
+                            height={imageHeight}
+                            className="absolute w-[calc(100%-24px)] h-auto group-hover:scale-[120%] duration-400"
+                        />
                     </div>
 
                     <div className="flex flex-col items-center justify-center gap-1 h-full">
