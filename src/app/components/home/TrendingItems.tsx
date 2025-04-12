@@ -8,7 +8,7 @@ export default async function TrendingItems() {
     const res = await getFeaturedProducts();
 
     return (
-        <section className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-6'>
+        <section className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-8'>
             <h2 className='text-2xl font-semibold'>FEATURED ITEMS</h2>
             <PiLightning size={24} />
 
@@ -24,7 +24,7 @@ export default async function TrendingItems() {
             )}
 
             {/* ITEMS */}
-            <div className="grid grid-cols-3 gap-12 w-full mt-12 pb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full mt-12 pb-8">
                 {res.succes && res.data.map(item => (
                     <ItemCard
                         key={item.documentId}
