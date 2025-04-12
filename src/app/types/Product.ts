@@ -7,7 +7,7 @@ export type Product = {
     active: boolean;
     price: number;
     color: string;
-    grender: string;
+    gender: string;
     isFeatured: boolean;
     images: {
         id: number;
