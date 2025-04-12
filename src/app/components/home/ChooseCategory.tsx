@@ -10,11 +10,11 @@ const ChooseCategory = () => {
 
     return (
         < div className='flex items-center gap-4' >
-            <span className='text-blue-zodiac-600 font-medium cursor-pointer'>Featured</span>
+            <span className='text-blue-zodiac-600 dark:text-blue-zodiac-400 font-medium cursor-pointer'>Featured</span>
 
             {trendingCategories.map((category) => (
                 <React.Fragment key={category.slug}>
-                    <div className='h-4 w-[2px] rounded-full bg-black/40'></div>
+                    <div className='h-4 w-[2px] rounded-full bg-black/40 dark:bg-white/40'></div>
                     <Link
                         href={`/shop/${category.slug}`}
                         className="font-medium"
