@@ -6,10 +6,10 @@ export async function getFeaturedProducts(): Promise<Response<Product[]>> {
     try {
         const res = await query("products?filters[isFeatured][$eq]=true&populate=*");
 
-        return { succes: true, data: res.data }
+        return { success: true, data: res.data }
     } catch (error) {
         console.error(error);
 
-        return { succes: false, error: "Failed to fetch featured products" };
+        return { success: false, error: "Failed to fetch featured products" };
     }
 }

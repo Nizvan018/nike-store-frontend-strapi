@@ -1,7 +1,7 @@
 export type Response<T> = {
-    succes: true;
+    success: true;
     data: T;
 } | {
-    succes: false;
+    success: false;
     error: string;
 };
