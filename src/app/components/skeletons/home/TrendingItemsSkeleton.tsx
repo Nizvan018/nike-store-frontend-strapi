@@ -2,11 +2,11 @@ import { PiLightning } from "react-icons/pi";
 
 const TrendingItemsSkeleton = () => {
     return (
-        <section className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-6'>
+        <section className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-8'>
             <h2 className='text-2xl font-semibold'>FEATURED ITEMS</h2>
             <PiLightning size={24} />
 
-            <div className="grid grid-cols-3 gap-12 w-full mt-12 pb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full mt-12 pb-8">
 
                 {Array.from({ length: 3 }).map((_, index) => (
                     <div key={index} className="flex flex-col gap-2 w-full aspect-portrait rounded-xl bg-black/10 dark:bg-white/10 animate-pulse">

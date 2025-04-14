@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Introduction() {
     return (
-        <section className='flex items-center gap-16 w-full max-w-[1000px] px-6'>
+        <section className='flex flex-col sm:flex-row items-center gap-16 w-full max-w-[1000px] px-6'>
             <article className='flex flex-col items-center gap-4 md:gap-6 w-full text-center'>
                 <span className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold'>NEVER STOP</span>
                 <div className='w-1/3 h-1 rounded-full bg-black/40'></div>
