@@ -1,17 +1,13 @@
-import { PiLightning } from "react-icons/pi";
 import { TbReload } from "react-icons/tb";
 import ItemCard from "../ItemCard";
 import { getFeaturedProducts } from "@/app/api/getFeaturedProducts";
 import Link from "next/link";
 
-export default async function TrendingItems() {
+export default async function FeaturedItems() {
     const res = await getFeaturedProducts();
 
     return (
-        <section className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-8'>
-            <h2 className='text-2xl font-semibold'>FEATURED ITEMS</h2>
-            <PiLightning size={24} />
-
+        <div className="w-full">
             {/* IF ERROR */}
             {!res.succes && (
                 <div className="flex flex-col items-center gap-4 w-full p-8 mt-12 rounded-xl bg-black/5 dark:bg-white/5">
@@ -32,6 +28,6 @@ export default async function TrendingItems() {
                     />
                 ))}
             </div>
-        </section>
+        </div>
     )
 }
