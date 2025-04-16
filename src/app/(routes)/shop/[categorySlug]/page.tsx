@@ -1,7 +1,5 @@
 import Header from "@components/shop/Header";
 import Products from "@components/shop/Products";
-import { Suspense } from "react";
-import ProductsSkeleton from "@components/skeletons/shop/ProductsSkeleton";
 
 interface Params {
     params: Promise<{
@@ -16,9 +14,7 @@ const CategoryPage = async ({ params }: Params) => {
         <main className="flex flex-col items-center gap-48 pb-48">
             <Header category={categorySlug} />
 
-            <Suspense fallback={<ProductsSkeleton category={categorySlug} />}>
-                <Products category={categorySlug} />
-            </Suspense>
+            <Products category={categorySlug} />
         </main>
     )
 }

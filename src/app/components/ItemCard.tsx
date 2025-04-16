@@ -42,7 +42,7 @@ export default function ItemCard({ product }: Props) {
                     >
                         <div className={`absolute w-full aspect-square rounded-2xl top-diagonal ${colors[color as keyof typeof colors].bg}`}></div>
                         <Image
-                            src={`${process.env.STRAPI_URL}${images[0].url}`}
+                            src={images[0].url}
                             alt={images[0].alternativeText}
                             width={images[0].width}
                             height={images[0].height}

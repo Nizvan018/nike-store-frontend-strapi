@@ -4,7 +4,7 @@ interface Props {
     category: string;
 }
 
-const ProductsSkeleton = async ({ category }: Props) => {
+const ProductsSkeleton = ({ category }: Props) => {
     return (
         <section id="products" className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-8' style={{ scrollMarginTop: "120px" }}>
             <h2 className='text-2xl font-semibold uppercase'>{category} PRODUCTS</h2>
