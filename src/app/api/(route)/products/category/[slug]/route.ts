@@ -34,10 +34,8 @@ export async function GET(request: Request, { params }: Params) {
             product.images = fixedImages;
         });
 
-        return NextResponse.json(res, { status: 200 });
+        return NextResponse.json(products, { status: 200 });
     } catch (error) {
-        console.log(error);
-
         return NextResponse.json({ error: `Failed to fetch products with that category`, message: (error as Error).message }, { status: 500 });
     }
 }

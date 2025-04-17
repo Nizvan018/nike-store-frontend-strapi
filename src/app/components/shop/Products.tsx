@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Products = ({ category }: Props) => {
-    const { loading, error, data } = useFetch<{ data: Product[] }>(`/api/client/products/category/${category}`, undefined, true);
+    const { loading, error, data } = useFetch<Product[]>(`/api/products/category/${category}`, undefined, true);
 
     return (
         <section id="products" className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-8' style={{ scrollMarginTop: "120px" }}>
@@ -42,7 +42,7 @@ const Products = ({ category }: Props) => {
 
                 {/* ITEMS */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full mt-12 px-8 sm:px-0 pb-8">
-                    {data && data.data.map(item => (
+                    {data && data.map(item => (
                         <ItemCard
                             key={item.documentId}
                             product={item}

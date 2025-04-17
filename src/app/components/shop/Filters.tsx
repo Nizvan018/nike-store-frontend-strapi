@@ -1,45 +1,32 @@
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@components/ui/select"
+import useFetch from "@/app/hooks/useFetch";
+import Select from "react-select";
+import { styles, theme } from "@assets/selectStyles";
 
 const Filters = () => {
-    return (
-        <div className="flex items-center gap-4">
-            <Select>
-                <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Color" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                        <SelectLabel>Color</SelectLabel>
-                        <SelectItem value="Red">Red</SelectItem>
-                        <SelectItem value="green">Green</SelectItem>
-                        <SelectItem value="blue">Blue</SelectItem>
-                        <SelectItem value="mono-color">Mono-color</SelectItem>
-                        <SelectItem value="multi-color">Multi-color</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
+    const { loading: loadingColor, data: dataColor, error: errorColor } = useFetch<string[]>("/api/color", undefined, true);
+    const { loading: loadingGender, data: dataGender, error: errorGender } = useFetch<string[]>("/api/gender", undefined, true);
 
-            <Select>
-                <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Gender" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                        <SelectLabel>Gender</SelectLabel>
-                        <SelectItem value="female">Female</SelectItem>
-                        <SelectItem value="male">Male</SelectItem>
-                        <SelectItem value="unisex">Unisex</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
+    return (
+        <div className="z-50 flex items-center gap-6">
+            <Select
+                options={dataColor?.map(color => ({ value: color, label: color }))}
+                isLoading={loadingColor}
+                isDisabled={errorColor !== null}
+                placeholder="Color"
+                className="w-[160px]"
+                styles={styles}
+                theme={theme}
+            />
+
+            <Select
+                options={dataGender?.map(gender => ({ value: gender, label: gender }))}
+                isLoading={loadingGender}
+                isDisabled={errorGender !== null}
+                placeholder="Gender"
+                className="w-[160px]"
+                styles={styles}
+                theme={theme}
+            />
         </div>
     )
 }
