@@ -8,20 +8,43 @@ import Filters from "@components/shop/Filters";
 import useFetch from "@/app/hooks/useFetch";
 import { Product } from "@/app/types/Product";
 import ProductsSkeleton from "../skeletons/shop/ProductsSkeleton";
+import { useState } from "react";
 
 interface Props {
     category: string;
 }
 
+interface Option {
+    value: string;
+    label: string;
+}
+
 const Products = ({ category }: Props) => {
     const { loading, error, data } = useFetch<Product[]>(`/api/products/category/${category}`, undefined, true);
+    const [selectedColor, setSelectedColor] = useState<Option | null>(null);
+    const [selectedGender, setSelectedGender] = useState<Option | null>(null);
+
+    const filterByColor = (item: Product) => {
+        if (!selectedColor) return true;
+
+        return item.color === selectedColor.value;
+    }
+
+    const filterByGender = (item: Product) => {
+        if (!selectedGender) return true;
+
+        return item.gender === selectedGender.value;
+    }
 
     return (
         <section id="products" className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-8' style={{ scrollMarginTop: "120px" }}>
             <h2 className='text-2xl font-semibold uppercase'>{category} PRODUCTS</h2>
             <SiNike size={40} />
 
-            <Filters />
+            <Filters
+                colorCallback={setSelectedColor}
+                genderCallback={setSelectedGender}
+            />
 
             <div className="w-full">
                 {/* WHILE LOADING */}
@@ -42,7 +65,7 @@ const Products = ({ category }: Props) => {
 
                 {/* ITEMS */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full mt-12 px-8 sm:px-0 pb-8">
-                    {data && data.map(item => (
+                    {data && data.filter(filterByColor).filter(filterByGender).map(item => (
                         <ItemCard
                             key={item.documentId}
                             product={item}
