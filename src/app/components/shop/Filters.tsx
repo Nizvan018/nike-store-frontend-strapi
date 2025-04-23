@@ -18,7 +18,7 @@ const Filters = ({ colorCallback, genderCallback }: Props) => {
     const { loading: loadingGender, data: dataGender, error: errorGender } = useFetch<string[]>("/api/gender", undefined, true);
 
     return (
-        <div className="z-50 flex items-center gap-6">
+        <div className="z-50 flex items-center gap-6 text-black">
             <Select
                 options={dataColor?.map(color => ({ value: color, label: color }))}
                 onChange={(newValue) => colorCallback(newValue as Option)}
