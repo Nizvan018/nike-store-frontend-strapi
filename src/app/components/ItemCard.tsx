@@ -2,6 +2,7 @@ import { LuHeart } from "react-icons/lu";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "../types/Product";
+import { formatPrice } from "../lib/formatPrice";
 
 interface Props {
     product: Product;
@@ -53,7 +54,7 @@ export default function ItemCard({ product }: Props) {
                     <div className="flex flex-col items-center justify-center gap-1 h-full">
                         <LuHeart size={24} className="text-black/40 dark:text-white/40 mb-1" />
                         <h3 className="text-sm font-semibold">{name}</h3>
-                        <span className="font-bold">${price.toFixed(2)} <span className="font-semibold text-black/60 dark:text-white/60">USD</span></span>
+                        <span className="font-bold">{formatPrice(price, "USD", "en-US")}</span>
                     </div>
                 </div>
             </div>

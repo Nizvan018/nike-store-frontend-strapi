@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { TbReload } from "react-icons/tb";
+import { TbReload, TbMoodSadSquint } from "react-icons/tb";
 import ItemCard from "../ItemCard";
 import { SiNike } from "react-icons/si";
 import Filters from "@components/shop/Filters";
@@ -20,7 +20,7 @@ interface Option {
 }
 
 const Products = ({ category }: Props) => {
-    const { loading, error, data } = useFetch<Product[]>(`/api/products/category/${category}`, undefined, true);
+    const { loading, error, data: products } = useFetch<Product[]>(`/api/products/category/${category}`, undefined, true);
     const [selectedColor, setSelectedColor] = useState<Option | null>(null);
     const [selectedGender, setSelectedGender] = useState<Option | null>(null);
 
@@ -35,6 +35,8 @@ const Products = ({ category }: Props) => {
 
         return item.gender === selectedGender.value;
     }
+
+    const filteredProducts = !loading && products && products.filter(filterByColor).filter(filterByGender);
 
     return (
         <section id="products" className='flex flex-col items-center gap-4 w-full max-w-[1000px] px-8' style={{ scrollMarginTop: "120px" }}>
@@ -54,7 +56,7 @@ const Products = ({ category }: Props) => {
 
                 {/* IF ERROR */}
                 {!loading && error && (
-                    <div className="flex flex-col items-center gap-4 w-full p-8 mt-12 rounded-xl bg-black/5 dark:bg-white/5">
+                    <div className="flex flex-col items-center gap-4 w-full p-8 mt-16 rounded-xl bg-black/5 dark:bg-white/5">
                         <span className="text-rose-500">{error.message}</span>
                         <Link href={`/shop/${category}`} className='flex items-center gap-1 text-sm font-medium text-white dark:text-black py-2 px-4 rounded-full bg-black dark:bg-white'>
                             Reload
@@ -64,14 +66,22 @@ const Products = ({ category }: Props) => {
                 )}
 
                 {/* ITEMS */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full mt-12 px-8 sm:px-0 pb-8">
-                    {data && data.filter(filterByColor).filter(filterByGender).map(item => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full mt-16 px-8 sm:px-0 pb-8">
+                    {filteredProducts && filteredProducts.map(item => (
                         <ItemCard
                             key={item.documentId}
                             product={item}
                         />
                     ))}
                 </div>
+
+                {/* IF EMPTY */}
+                {filteredProducts && filteredProducts.length === 0 && (
+                    <div className="flex flex-col items-center gap-4 w-full p-8 mt-16 rounded-xl bg-black/5 dark:bg-white/5">
+                        <span>No products found with the category/color</span>
+                        <TbMoodSadSquint size={32} />
+                    </div>
+                )}
             </div>
         </section>
     )
