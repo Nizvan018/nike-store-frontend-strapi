@@ -29,3 +29,26 @@ export async function getFeaturedProducts(): Promise<Response<Product[]>> {
         return { success: false, error: "Failed to fetch featured products" };
     }
 }
+
+export async function getProductBySlug(slug: string): Promise<Response<Product>> {
+    try {
+        const res = await query(`products?filters[slug][$eq]=${slug}&populate=*`);
+
+        const products: Product[] = res.data;
+        const product = products[0];
+
+        const fixedImages = product.images.map(image => {
+            image.url = `${strapiUrl}${image.url}`;
+
+            return image;
+        });
+
+        product.images = fixedImages;
+
+        return { success: true, data: product }
+    } catch (error) {
+        console.error(error);
+
+        return { success: false, error: "Failed to fetch featured products" };
+    }
+}
